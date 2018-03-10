@@ -1,0 +1,179 @@
+.b1
+{
+  padding-top:5px;
+}
+/*APP NAME */
+#appn
+{
+  font-size:11pt;
+  position:relative;
+  padding-top: 50px;
+  margin-right: 50px;
+}
+
+/* PLAY BUTTON CRICLE*/
+#play-button{
+  font-size:1em;
+  line-height:1.1em;
+  border-color: gold;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+  border-radius: 100%;
+  width: 74px;
+  height: 70px;
+  position:relative;
+  margin-right: 50px;
+}
+
+#play-button:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:#ff7536;
+}
+
+/* MUTE CIRCLE*/
+#mute-button{
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+  position:absolute;
+  width: 30px;
+  padding-left:15px;
+  margin-top: 21px;
+
+
+}
+
+
+/* SONG TITLE */
+#metadata
+{
+  color:gold;
+  position:relative;
+  font-size: 13pt;
+  padding-left: 40px;
+  text-transform: uppercase;
+}
+/*dedication for cp*/
+.ddcatcp{
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: gold;
+  font-style: bold;
+  padding: 15px 20px 15px 20px;
+}
+
+.ddcatcp:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:gold;
+}
+/* VOLUME CONTROL */
+#vol-control
+{
+  background-color: gold;
+  position:relative;
+  margin-right: 30px;
+  margin-left: 35px;
+
+}
+
+/* SMALL BUTTONS */
+.smallbuts{
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  position:relative;
+}
+
+.smallbuts:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:#ff7536;
+}
+
+/* PLAY ICON SIZE */
+.playsize
+{
+  font-size:30pt;
+  
+}
+
+/* MEDIA BUTTONS */
+
+@media only screen and (max-width: 728px) {
+ #play-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+ border-radius: 30%;
+  width: 85px;
+  height: 85px;
+  position:relative;
+  float:left;
+
+}
+#appn
+{
+  display:none;
+}
+#vol-control
+{
+  display:none;
+}
+.smallbuts
+{
+  display:none;
+}
+
+}
+@media only screen and (max-width: 728px) {
+ #play-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+ border-radius: 30%;
+  width: 78px;
+  height: 70px;
+  margin-right: 10px;
+  position:relative;
+  float:left;
+
+}
+#metadataholder
+{
+  width: 60%;
+  float:left;
+  margin-top: 20px;
+}
+}
+@media only screen and (max-width: 728px) {
+ #mute-button{
+display:none;
+}
+}
+/* END OF MOBILE*/
+
+/*Line*/
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+    border-color: gold;
+} 

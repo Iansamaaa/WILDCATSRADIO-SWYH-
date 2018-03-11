@@ -11,12 +11,14 @@ $(document).ready(function(){
   var stream = document.getElementById('stream');
   var refreshIntervalId;
   var ts=(new Date()).getTime();
+  // URL OF THE STREAM
+  var url = "http://192.168.254.100:9000/wildcats.mp3";
         // The play button
         $("#play-button").bind({
             // Click function
             click:function(){
             // CHECKING OF THE CONNECTING IF TRUE IT WILL STREAM
-            PlayStop();
+            PlayStop(url);
           }
         });
 
@@ -155,12 +157,12 @@ function WhenPause()
     }
 
 // PLAY/STOP
-function PlayStop()
+function PlayStop(val)
 {
               if( $('#streamicon').hasClass("fa-play")){
                 $('#streamicon').removeClass("fa-play");
                 $('#streamicon').addClass("fa-stop");
-                music.setAttribute('src',"http://192.168.254.100:9000/wildcats.mp3");
+                music.setAttribute('src', val);
                 music.controls = false ;
                 music.play();
               }

@@ -132,16 +132,16 @@
           ============================-->
           <section id="about">
             <div id="ads">
-            <div class="section-header">
+              <div class="section-header">
                 <h3 class="section-title">About us</h3>
               </div>
-            <!-- /.container-fluid -->
-            <center><video width="80%" height="100%" loop video autoplay muted>
-            <source src="{{asset('wcr/img/capstoneVIDEO.mp4')}}" type="video/mp4">
-            </video></center>
-          </div>
+              <!-- /.container-fluid -->
+              <center><video width="80%" height="100%" loop video autoplay muted>
+                <source src="{{asset('wcr/img/capstoneVIDEO.mp4')}}" type="video/mp4">
+                </video></center>
+              </div>
 
-          </section><!-- #about -->
+            </section><!-- #about -->
 
            <!--==========================
           Dedication Section
@@ -235,7 +235,10 @@
                 <h3 class="section-title">Schedule</h3>
                 <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
               </div>
+              @if(Auth::user())
+              @if(Auth::user()->type=='admin')
               <div class="container wow fadeInDown">
+                <form method="POST" action="/schedule">
                <table class="table table-bordered" id="tableSched">
                 <thead>
                   <tr>
@@ -244,23 +247,60 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($schedules as $schedule)
                   <tr>
-                    <td>Punk Rock</td>
-                    <td>9:00 - 10:00</td>
+                    <td><input type="text" name="schedule[]" value="{{$schedule->genre}}"></td>
+                    <td>{{$schedule->start}} - {{$schedule->end}}</td>
                   </tr>
-                  <tr>
-                    <td>Christian Song</td>
-                    <td>10:00 - 11:00</td>
-                  </tr>
-                  <tr>
-                    <td>OPM</td>
-                    <td>11:00 - 12:00</td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table>
+              <button type="submit" style="float:right">Update</button>
+              </form>
             </div>
+            @else
+            <div class="container wow fadeInDown">
+             <table class="table table-bordered" id="tableSched">
+              <thead>
+                <tr>
+                  <th>Genre</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($schedules as $schedule)
+                  <tr>
+                    <td>{{$schedule->genre}}</td>
+                    <td>{{$schedule->start}} - {{$schedule->end}}</td>
+                  </tr>
+                  @endforeach
+              </tbody>
+            </table>
           </div>
-        </section><!-- #schedule -->
+          @endif
+          @else
+          <div class="container wow fadeInDown">
+           <table class="table table-bordered" id="tableSched">
+            <thead>
+              <tr>
+                <th>Genre</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($schedules as $schedule)
+                  <tr>
+                    <td>{{$schedule->genre}}</td>
+                    <td>{{$schedule->start}} - {{$schedule->end}}</td>
+                  </tr>
+                  @endforeach
+            </tbody>
+          </table>
+        </div>
+        @endif
+
+      </div>
+    </section><!-- #schedule -->
 
          <!--==========================
           Team Section
@@ -547,24 +587,24 @@
 
        <!-- Remove Modals -->
 
-         <div class="modal fade" id="RemoveModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">\
-              <input type="text" id="ddcatid" class="hidden"/>
-              <div class="modal-header">
-                <h4> Remove Dedication </h4>
-              </div>
-              <div class="modal-body">
-                <h5> Are you sure you want to delete this Dedication?</h5>
-              </div>
-              <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary" id="removeddcat">Delete</button>
-             </div>
+       <div class="modal fade" id="RemoveModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">\
+            <input type="text" id="ddcatid" class="hidden"/>
+            <div class="modal-header">
+              <h4> Remove Dedication </h4>
+            </div>
+            <div class="modal-body">
+              <h5> Are you sure you want to delete this Dedication?</h5>
+            </div>
+            <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-primary" id="removeddcat">Delete</button>
            </div>
          </div>
        </div>
-       <!-- END OF REMOVE MODALS -->
-              <!-- END OF MODALS-->
+     </div>
+     <!-- END OF REMOVE MODALS -->
+     <!-- END OF MODALS-->
 
-              </html>
+     </html>

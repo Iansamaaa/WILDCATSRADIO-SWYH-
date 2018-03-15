@@ -12,7 +12,13 @@ $(document).ready(function(){
   var refreshIntervalId;
   var ts=(new Date()).getTime();
   // URL OF THE STREAM
-  var url = "http://192.168.254.100:9000/wildcats.mp3";
+
+  // CHANGE IP HERE
+  var url = "http://192.168.254.100:9000/wildcats.mp3"; //MUSTCHANGE THE IP
+  // CHANGE IP HERE 
+
+
+  
         // The play button
         $("#play-button").bind({
             // Click function
